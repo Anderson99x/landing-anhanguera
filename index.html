@@ -17,7 +17,7 @@
             letter-spacing: 1.5px;
         }
         .bg-hero-pattern {
-            /* Fundo com gradiente animado e nova imagem mais vibrante */
+           
             background: linear-gradient(270deg, #e65100, #ff9800, #f57c00);
             background-size: 600% 600%;
             animation: animated-gradient 16s ease infinite;
@@ -37,7 +37,7 @@
             opacity: 0.25;
             z-index: 0;
         }
-        /* Animação do Gradiente */
+      
         @keyframes animated-gradient {
             0%{background-position:0% 50%}
             50%{background-position:100% 50%}
@@ -229,7 +229,7 @@
         const successMessage = document.getElementById('success-message');
 
         leadForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio real do formulário
+            event.preventDefault(); 
             
           
             formWrapper.classList.add('hidden');
