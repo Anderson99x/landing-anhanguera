@@ -61,7 +61,7 @@
         <div class="container mx-auto flex flex-col lg:flex-row items-center gap-8 content-wrapper">
             
             <div class="lg:w-1/2 text-center lg:text-left">
-                <img src="foto transparente.png" alt="Logo Anhanguera" class="w-48 mx-auto lg:mx-0 mb-6 logo-shadow">
+                <img src="WhatsApp Image 2025-07-18 at 14.36.37.jpeg" alt="Logo da Anhanguera" class="w-48 mx-auto lg:mx-0 mb-6 logo-shadow">
                 <h1 class="text-4xl md:text-6xl font-anton leading-tight text-shadow-custom">SEU FUTURO COMEÇA AQUI.</h1>
                 <p class="text-lg md:text-xl mt-4 mb-6 text-shadow-custom">Graduação a partir de R$ 99/mês. Inscreva-se e mude seu futuro!</p>
             </div>
@@ -73,6 +73,31 @@
                     <form id="lead-form" class="space-y-4">
                         <div>
                             <label for="name" class="text-sm font-semibold text-gray-600">Nome Completo</label>
+                            <input type="text" id="name" placeholder="Seu nome" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                        </div>
+                        <div>
+                            <label for="email" class="text-sm font-semibold text-gray-600">Seu melhor e-mail</label>
+                            <input type="email" id="email" placeholder="seu.email@exemplo.com" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="text-sm font-semibold text-gray-600">Telefone (WhatsApp)</label>
+                            <input type="tel" id="phone" placeholder="(11) 99999-9999" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                        </div>
+                        <div>
+                            <label for="course" class="text-sm font-semibold text-gray-600">Curso de Interesse</label>
+                            <select id="course" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                                <option value="" disabled selected>Selecione o curso e a modalidade</option>
+                                <optgroup label="🎓 Cursos Presenciais">
+                                    <option value="Presencial - Administração">Administração</option>
+                                    <option value="Presencial - Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                                    <option value="Presencial - Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
+                                    <option value="Presencial - Biomedicina">Biomedicina</option>
+                                    <option value="Presencial - Ciência da Computação">Ciência da Computação</option>
+                                    <option value="Presencial - Ciências Contábeis">Ciências Contábeis</option>
+                                    <option value="Presencial - Direito">Direito</option>
+                                    <option value="Presencial - Educação Física (Bacharelado e Licenciatura)">Educação Física (Bacharelado e Licenciatura)</option>
+                                    <option value="Presencial - Enfermagem">Enfermagem</option>
+                                    <option value="Presencial - Engenharia Civil">Engenharia Civil</option>
                                     <option value="Presencial - Engenharia da Computação">Engenharia da Computação</option>
                                     <option value="Presencial - Engenharia de Produção">Engenharia de Produção</option>
                                     <option value="Presencial - Engenharia Elétrica">Engenharia Elétrica</option>
@@ -198,7 +223,7 @@
     </footer>
 
     <script>
-        // Simulação do envio do formulário
+       
         const formWrapper = document.getElementById('form-wrapper');
         const leadForm = document.getElementById('lead-form');
         const successMessage = document.getElementById('success-message');
@@ -206,10 +231,10 @@
         leadForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Impede o envio real do formulário
             
-            // Esconde o formulário
+          
             formWrapper.classList.add('hidden');
             
-            // Mostra a mensagem de sucesso
+           
             successMessage.classList.remove('hidden');
         });
     </script>
