@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -44,7 +46,7 @@
             100%{background-position:0% 50%}
         }
         .text-shadow-custom {
-             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
         .logo-shadow {
             filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
@@ -82,6 +84,10 @@
                         <div>
                             <label for="phone" class="text-sm font-semibold text-gray-600">Telefone (WhatsApp)</label>
                             <input type="tel" id="phone" placeholder="(11) 99999-9999" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                        </div>
+                        <div>
+                            <label for="cpf" class="text-sm font-semibold text-gray-600">CPF</label>
+                            <input type="text" id="cpf" placeholder="000.000.000-00" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
                         </div>
                         <div>
                             <label for="course" class="text-sm font-semibold text-gray-600">Curso de Interesse</label>
@@ -223,18 +229,20 @@
     </footer>
 
     <script>
-       
         const formWrapper = document.getElementById('form-wrapper');
         const leadForm = document.getElementById('lead-form');
         const successMessage = document.getElementById('success-message');
 
+        // Inicializa a máscara de CPF usando jQuery e Inputmask.js
+        $(document).ready(function(){
+            $('#cpf').inputmask('999.999.999-99');
+        });
+
         leadForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Impede o envio real do formulário
             
-          
             formWrapper.classList.add('hidden');
             
-           
             successMessage.classList.remove('hidden');
         });
     </script>
