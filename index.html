@@ -8,8 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -19,7 +17,7 @@
             letter-spacing: 1.5px;
         }
         .bg-hero-pattern {
-            /* Fundo com gradiente animado e nova imagem mais vibrante */
+           
             background: linear-gradient(270deg, #e65100, #ff9800, #f57c00);
             background-size: 600% 600%;
             animation: animated-gradient 16s ease infinite;
@@ -63,7 +61,7 @@
         <div class="container mx-auto flex flex-col lg:flex-row items-center gap-8 content-wrapper">
             
             <div class="lg:w-1/2 text-center lg:text-left">
-                <img src="WhatsApp Image 2025-07-18 at 14.36.37.jpeg" alt="Logo da Anhanguera" class="w-48 mx-auto lg:mx-0 mb-6 logo-shadow">
+                <img src="foto transparente.png" alt="Logo da Anhanguera" class="w-48 mx-auto lg:mx-0 mb-6 logo-shadow">
                 <h1 class="text-4xl md:text-6xl font-anton leading-tight text-shadow-custom">SEU FUTURO COMEÇA AQUI.</h1>
                 <p class="text-lg md:text-xl mt-4 mb-6 text-shadow-custom">Graduação a partir de R$ 99/mês. Inscreva-se e mude seu futuro!</p>
             </div>
@@ -75,103 +73,103 @@
                     <form id="lead-form" class="space-y-4">
                         <div>
                             <label for="name" class="text-sm font-semibold text-gray-600">Nome Completo</label>
-                            <input type="text" id="name" placeholder="Seu nome" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                            <input type="text" id="name" name="Nome_Completo" placeholder="Seu nome" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
                         </div>
                         <div>
                             <label for="email" class="text-sm font-semibold text-gray-600">Seu melhor e-mail</label>
-                            <input type="email" id="email" placeholder="seu.email@exemplo.com" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                            <input type="email" id="email" name="E_mail" placeholder="seu.email@exemplo.com" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
                         </div>
                         <div>
                             <label for="phone" class="text-sm font-semibold text-gray-600">Telefone (WhatsApp)</label>
-                            <input type="tel" id="phone" placeholder="(11) 99999-9999" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                            <input type="tel" id="phone" name="TELEFONE" placeholder="(11) 99999-9999" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
                         </div>
                         <div>
                             <label for="cpf" class="text-sm font-semibold text-gray-600">CPF</label>
-                            <input type="text" id="cpf" placeholder="000.000.000-00" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                            <input type="text" id="cpf" name="CPF" placeholder="000.000.000-00" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
                         </div>
                         <div>
                             <label for="course" class="text-sm font-semibold text-gray-600">Curso de Interesse</label>
-                            <select id="course" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
+                            <select id="course" name="CURSO" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
                                 <option value="" disabled selected>Selecione o curso e a modalidade</option>
                                 <optgroup label="🎓 Cursos Presenciais">
-                                    <option value="Presencial - Administração">Administração</option>
-                                    <option value="Presencial - Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                                    <option value="Presencial - Administracao">Administração</option>
+                                    <option value="Presencial - Analise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
                                     <option value="Presencial - Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
                                     <option value="Presencial - Biomedicina">Biomedicina</option>
-                                    <option value="Presencial - Ciência da Computação">Ciência da Computação</option>
-                                    <option value="Presencial - Ciências Contábeis">Ciências Contábeis</option>
+                                    <option value="Presencial - Ciencia da Computacao">Ciência da Computação</option>
+                                    <option value="Presencial - Ciencias Contabeis">Ciências Contábeis</option>
                                     <option value="Presencial - Direito">Direito</option>
-                                    <option value="Presencial - Educação Física (Bacharelado e Licenciatura)">Educação Física (Bacharelado e Licenciatura)</option>
+                                    <option value="Presencial - Educacao Fisica (Bacharelado e Licenciatura)">Educação Física (Bacharelado e Licenciatura)</option>
                                     <option value="Presencial - Enfermagem">Enfermagem</option>
                                     <option value="Presencial - Engenharia Civil">Engenharia Civil</option>
-                                    <option value="Presencial - Engenharia da Computação">Engenharia da Computação</option>
-                                    <option value="Presencial - Engenharia de Produção">Engenharia de Produção</option>
-                                    <option value="Presencial - Engenharia Elétrica">Engenharia Elétrica</option>
-                                    <option value="Presencial - Engenharia Mecânica">Engenharia Mecânica</option>
-                                    <option value="Presencial - Farmácia">Farmácia</option>
+                                    <option value="Presencial - Engenharia da Computacao">Engenharia da Computação</option>
+                                    <option value="Presencial - Engenharia de Producao">Engenharia de Produção</option>
+                                    <option value="Presencial - Engenharia Eletrica">Engenharia Elétrica</option>
+                                    <option value="Presencial - Engenharia Mecanica">Engenharia Mecânica</option>
+                                    <option value="Presencial - Farmacia">Farmácia</option>
                                     <option value="Presencial - Fisioterapia">Fisioterapia</option>
                                     <option value="Presencial - Jornalismo">Jornalismo</option>
-                                    <option value="Presencial - Medicina Veterinária">Medicina Veterinária</option>
-                                    <option value="Presencial - Nutrição">Nutrição</option>
+                                    <option value="Presencial - Medicina Veterinaria">Medicina Veterinária</option>
+                                    <option value="Presencial - Nutricao">Nutrição</option>
                                     <option value="Presencial - Odontologia">Odontologia</option>
                                     <option value="Presencial - Pedagogia">Pedagogia</option>
                                     <option value="Presencial - Psicologia">Psicologia</option>
                                     <option value="Presencial - Publicidade e Propaganda">Publicidade e Propaganda</option>
-                                    <option value="Presencial - Relações Internacionais">Relações Internacionais</option>
-                                    <option value="Presencial - Sistemas de Informação">Sistemas de Informação</option>
+                                    <option value="Presencial - Relacoes Internacionais">Relações Internacionais</option>
+                                    <option value="Presencial - Sistemas de Informacao">Sistemas de Informação</option>
                                 </optgroup>
                                 <optgroup label="💻 Cursos Semipresenciais (Híbrido)">
-                                    <option value="Semipresencial - Administração">Administração</option>
+                                    <option value="Semipresencial - Administracao">Administração</option>
                                     <option value="Semipresencial - Agronomia">Agronomia</option>
-                                    <option value="Semipresencial - Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                                    <option value="Semipresencial - Analise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
                                     <option value="Semipresencial - Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>
                                     <option value="Semipresencial - Biomedicina">Biomedicina</option>
-                                    <option value="Semipresencial - Ciências Contábeis">Ciências Contábeis</option>
-                                    <option value="Semipresencial - Educação Física (Bacharelado e Licenciatura)">Educação Física (Bacharelado e Licenciatura)</option>
+                                    <option value="Semipresencial - Ciencias Contabeis">Ciências Contábeis</option>
+                                    <option value="Semipresencial - Educacao Fisica (Bacharelado e Licenciatura)">Educação Física (Bacharelado e Licenciatura)</option>
                                     <option value="Semipresencial - Enfermagem">Enfermagem</option>
                                     <option value="Semipresencial - Engenharia Civil">Engenharia Civil</option>
-                                    <option value="Semipresencial - Engenharia da Computação">Engenharia da Computação</option>
-                                    <option value="Semipresencial - Engenharia de Produção">Engenharia de Produção</option>
-                                    <option value="Semipresencial - Engenharia Elétrica">Engenharia Elétrica</option>
-                                    <option value="Semipresencial - Engenharia Mecânica">Engenharia Mecânica</option>
-                                    <option value="Semipresencial - Estética e Cosmética">Estética e Cosmética</option>
-                                    <option value="Semipresencial - Farmácia">Farmácia</option>
+                                    <option value="Semipresencial - Engenharia da Computacao">Engenharia da Computação</option>
+                                    <option value="Semipresencial - Engenharia de Producao">Engenharia de Produção</option>
+                                    <option value="Semipresencial - Engenharia Eletrica">Engenharia Elétrica</option>
+                                    <option value="Semipresencial - Engenharia Mecanica">Engenharia Mecânica</option>
+                                    <option value="Semipresencial - Estetica e Cosmetica">Estética e Cosmética</option>
+                                    <option value="Semipresencial - Farmacia">Farmácia</option>
                                     <option value="Semipresencial - Fisioterapia">Fisioterapia</option>
                                     <option value="Semipresencial - Gastronomia">Gastronomia</option>
-                                    <option value="Semipresencial - Nutrição">Nutrição</option>
+                                    <option value="Semipresencial - Nutricao">Nutrição</option>
                                     <option value="Semipresencial - Pedagogia">Pedagogia</option>
-                                    <option value="Semipresencial - Serviço Social">Serviço Social</option>
+                                    <option value="Semipresencial - Servico Social">Serviço Social</option>
                                 </optgroup>
                                 <optgroup label="🌐 Cursos EAD (100% Online)">
-                                    <option value="EAD - Administração">Administração</option>
-                                    <option value="EAD - Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                                    <option value="EAD - Administracao">Administração</option>
+                                    <option value="EAD - Analise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
                                     <option value="EAD - Artes Visuais">Artes Visuais</option>
-                                    <option value="EAD - Ciência de Dados">Ciência de Dados</option>
-                                    <option value="EAD - Ciências Contábeis">Ciências Contábeis</option>
-                                    <option value="EAD - Ciências Econômicas">Ciências Econômicas</option>
-                                    <option value="EAD - Comércio Exterior">Comércio Exterior</option>
-                                    <option value="EAD - Educação Física (Licenciatura)">Educação Física (Licenciatura)</option>
+                                    <option value="EAD - Ciencia de Dados">Ciência de Dados</option>
+                                    <option value="EAD - Ciencias Contabeis">Ciências Contábeis</option>
+                                    <option value="EAD - Ciencias Economicas">Ciências Econômicas</option>
+                                    <option value="EAD - Comercio Exterior">Comércio Exterior</option>
+                                    <option value="EAD - Educacao Fisica (Licenciatura)">Educação Física (Licenciatura)</option>
                                     <option value="EAD - Engenharia de Software">Engenharia de Software</option>
                                     <option value="EAD - Filosofia">Filosofia</option>
                                     <option value="EAD - Geografia">Geografia</option>
                                     <option value="EAD - Gerontologia">Gerontologia</option>
-                                    <option value="EAD - Gestão Comercial">Gestão Comercial</option>
-                                    <option value="EAD - Gestão da Produção Industrial">Gestão da Produção Industrial</option>
-                                    <option value="EAD - Gestão da Tecnologia da Informação">Gestão da Tecnologia da Informação</option>
-                                    <option value="EAD - Gestão de Recursos Humanos">Gestão de Recursos Humanos</option>
-                                    <option value="EAD - Gestão Financeira">Gestão Financeira</option>
-                                    <option value="EAD - Gestão Hospitalar">Gestão Hospitalar</option>
-                                    <option value="EAD - História">História</option>
-                                    <option value="EAD - Letras (Português, Inglês, Espanhol)">Letras (Português, Inglês, Espanhol)</option>
-                                    <option value="EAD - Logística">Logística</option>
+                                    <option value="EAD - Gestao Comercial">Gestão Comercial</option>
+                                    <option value="EAD - Gestao da Producao Industrial">Gestão da Produção Industrial</option>
+                                    <option value="EAD - Gestao da Tecnologia da Informacao">Gestão da Tecnologia da Informação</option>
+                                    <option value="EAD - Gestao de Recursos Humanos">Gestão de Recursos Humanos</option>
+                                    <option value="EAD - Gestao Financeira">Gestão Financeira</option>
+                                    <option value="EAD - Gestao Hospitalar">Gestão Hospitalar</option>
+                                    <option value="EAD - Historia">História</option>
+                                    <option value="EAD - Letras (Portugues, Ingles, Espanhol)">Letras (Português, Inglês, Espanhol)</option>
+                                    <option value="EAD - Logistica">Logística</option>
                                     <option value="EAD - Marketing">Marketing</option>
                                     <option value="EAD - Marketing Digital">Marketing Digital</option>
                                     <option value="EAD - Pedagogia">Pedagogia</option>
                                     <option value="EAD - Processos Gerenciais">Processos Gerenciais</option>
                                     <option value="EAD - Redes de Computadores">Redes de Computadores</option>
-                                    <option value="EAD - Relações Públicas">Relações Públicas</option>
-                                    <option value="EAD - Segurança Pública">Segurança Pública</option>
-                                    <option value="EAD - Serviço Social">Serviço Social</option>
+                                    <option value="EAD - Relacoes Publicas">Relações Públicas</option>
+                                    <option value="EAD - Seguranca Publica">Segurança Pública</option>
+                                    <option value="EAD - Servico Social">Serviço Social</option>
                                     <option value="EAD - Sociologia">Sociologia</option>
                                     <option value="EAD - Teologia">Teologia</option>
                                 </optgroup>
@@ -227,7 +225,8 @@
             <p class="text-sm text-gray-400 mt-1">Esta é uma página de demonstração para captação de leads.</p>
         </div>
     </footer>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>   
     <script>
         const formWrapper = document.getElementById('form-wrapper');
         const leadForm = document.getElementById('lead-form');
@@ -239,11 +238,32 @@
         });
 
         leadForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio real do formulário
+            event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
+
+            const formData = new FormData(leadForm); 
             
-            formWrapper.classList.add('hidden');
-            
-            successMessage.classList.remove('hidden');
+            // ESTE É O ENDEREÇO DO SEU WEB APP DO GOOGLE APPS SCRIPT!
+            const webAppUrl = 'https://script.google.com/macros/s/AKfycbzZOZUqjlp5bQ1DUQKhqMi2ABT8nZYFi-4rcluMawDsWJTBcxxhu8FRJWN1Fs/exec'; 
+
+            fetch(webAppUrl, {
+                method: 'POST',
+                body: formData 
+            })
+            .then(response => response.json()) 
+            .then(data => {
+                if (data.result === 'success') {
+                    formWrapper.classList.add('hidden'); 
+                    successMessage.classList.remove('hidden'); 
+                    leadForm.reset(); 
+                } else {
+                    alert('Houve um erro ao enviar sua inscrição. Tente novamente mais tarde.');
+                    console.error('Erro do Apps Script:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro ao conectar com o Google Apps Script. Verifique sua conexão ou tente novamente.', error);
+                alert('Ocorreu um erro de rede ou servidor. Por favor, tente novamente.');
+            });
         });
     </script>
 
