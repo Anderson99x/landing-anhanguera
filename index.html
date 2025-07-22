@@ -17,7 +17,6 @@
             letter-spacing: 1.5px;
         }
         .bg-hero-pattern {
-           
             background: linear-gradient(270deg, #e65100, #ff9800, #f57c00);
             background-size: 600% 600%;
             animation: animated-gradient 16s ease infinite;
@@ -37,7 +36,6 @@
             opacity: 0.25;
             z-index: 0;
         }
-      
         @keyframes animated-gradient {
             0%{background-position:0% 50%}
             50%{background-position:100% 50%}
@@ -226,28 +224,28 @@
         </div>
     </footer>
 
-
-</body>
-</html><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>   
     <script>
         const formWrapper = document.getElementById('form-wrapper');
         const leadForm = document.getElementById('lead-form');
         const successMessage = document.getElementById('success-message');
 
-       
+        // Inicializa as máscaras usando jQuery e Inputmask.js
         $(document).ready(function(){
             $('#cpf').inputmask('999.999.999-99');
             $('#phone').inputmask('(99) 99999-9999'); 
         });
 
         leadForm.addEventListener('submit', function(event) {
-            event.preventDefault(); 
+            event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
 
-          
+            // Coleta os dados do formulário (agora com os atributos 'name' corretos no HTML)
             const formData = new FormData(leadForm);
             
-            
+            // ESTA É A URL DO SEU WEB APP DO GOOGLE APPS SCRIPT!
+            // Verifique se a URL abaixo é exatamente a mesma que você obteve na última implantação do seu Apps Script.
+            // A URL da imagem que você forneceu é: https://script.google.com/macros/s/AKfycbzZOZUqjlp5bQ1DUQKhqMi2ABT8nZYFi-4rcluMawDsWJTBcxxhu8FRJWN1Fs/exec
             const webAppUrl = 'https://script.google.com/macros/s/AKfycbzZOZUqjlp5bQ1DUQKhqMi2ABT8nZYFi-4rcluMawDsWJTBcxxhu8FRJWN1Fs/exec';
 
             fetch(webAppUrl, {
@@ -255,12 +253,12 @@
                 body: formData
             })
             .then(response => {
-             
+                // Verifica se a resposta é JSON antes de tentar parsear
                 const contentType = response.headers.get("content-type");
                 if (contentType && contentType.indexOf("application/json") !== -1) {
                     return response.json();
                 } else {
-               
+                    // Se não for JSON, lê como texto e lança um erro
                     return response.text().then(text => {
                         throw new Error('Resposta não é JSON: ' + text);
                     });
@@ -270,7 +268,7 @@
                 if (data.result === 'success') {
                     formWrapper.classList.add('hidden');
                     successMessage.classList.remove('hidden');
-                    leadForm.reset(); 
+                    leadForm.reset(); // Limpa o formulário após o sucesso
                 } else {
                     alert('Houve um erro ao enviar sua inscrição. Tente novamente mais tarde.');
                     console.error('Erro do Apps Script:', data);
@@ -282,7 +280,6 @@
             });
         });
     </script>
-
 </body>
 </html>
 
