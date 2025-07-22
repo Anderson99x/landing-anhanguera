@@ -37,7 +37,7 @@
             opacity: 0.25;
             z-index: 0;
         }
-        /* Animação do Gradiente */
+       
         @keyframes animated-gradient {
             0%{background-position:0% 50%}
             50%{background-position:100% 50%}
@@ -232,17 +232,16 @@
         const leadForm = document.getElementById('lead-form');
         const successMessage = document.getElementById('success-message');
 
-        // Inicializa a máscara de CPF usando jQuery e Inputmask.js
+        
         $(document).ready(function(){
             $('#cpf').inputmask('999.999.999-99');
         });
 
         leadForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
-
+            event.preventDefault(); 
             const formData = new FormData(leadForm); 
             
-            // ESTE É O ENDEREÇO DO SEU WEB APP DO GOOGLE APPS SCRIPT!
+           
             const webAppUrl = 'https://script.google.com/macros/s/AKfycbzZOZUqjlp5bQ1DUQKhqMi2ABT8nZYFi-4rcluMawDsWJTBcxxhu8FRJWN1Fs/exec'; 
 
             fetch(webAppUrl, {
