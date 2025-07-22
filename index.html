@@ -228,43 +228,68 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>   
     <script>
-        const formWrapper = document.getElementById('form-wrapper');
-        const leadForm = document.getElementById('lead-form');
-        const successMessage = document.getElementById('success-message');
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>   
+<script>
+    const formWrapper = document.getElementById('form-wrapper');
+    const leadForm = document.getElementById('lead-form');
+    const successMessage = document.getElementById('success-message');
 
-        // Inicializa a máscara de CPF usando jQuery e Inputmask.js
-        $(document).ready(function(){
-            $('#cpf').inputmask('999.999.999-99');
+    // Inicializa a máscara de CPF usando jQuery e Inputmask.js
+    $(document).ready(function(){
+        $('#cpf').inputmask('999.999.999-99');
+        $('#phone').inputmask('(99) 99999-9999'); // Adicionando máscara para o telefone também
+    });
+
+    leadForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
+
+        // Coleta os dados do formulário
+        const formData = new FormData(leadForm);
+        
+        // Adiciona os atributos 'name' que estavam faltando nos inputs de e-mail, telefone e curso
+        // Isso é CRÍTICO para que o Apps Script possa ler esses valores via e.parameter
+        formData.set('E_mail', document.getElementById('email').value);
+        formData.set('TELEFONE', document.getElementById('phone').value);
+        formData.set('CURSO', document.getElementById('course').value);
+
+        // ESTE É O ENDEREÇO DO SEU WEB APP DO GOOGLE APPS SCRIPT!
+        // Certifique-se de que esta URL está correta (ela foi fornecida anteriormente como:
+        // 'https://script.google.com/macros/s/AKfycbzZOZUqjlp5bQ1DUQKhqMi2ABT8nZYFi-4rcluMawDsWJTBcxxhu8FRJWN1Fs/exec')
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbzZOZUqjlp5bQ1DUQKhqMi2ABT8nZYFi-4rcluMawDsWJTBcxxhu8FRJWN1Fs/exec';
+
+        fetch(webAppUrl, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            // Verifica se a resposta é JSON antes de tentar parsear
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                return response.json();
+            } else {
+                // Se não for JSON, lê como texto e lança um erro
+                return response.text().then(text => {
+                    throw new Error('Resposta não é JSON: ' + text);
+                });
+            }
+        })
+        .then(data => {
+            if (data.result === 'success') {
+                formWrapper.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                leadForm.reset(); // Limpa o formulário após o sucesso
+            } else {
+                alert('Houve um erro ao enviar sua inscrição. Tente novamente mais tarde.');
+                console.error('Erro do Apps Script:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Ocorreu um erro ao conectar com o Google Apps Script. Verifique sua conexão ou tente novamente.', error);
+            alert('Ocorreu um erro de rede ou servidor. Por favor, tente novamente.');
         });
-
-        leadForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
-
-            const formData = new FormData(leadForm); 
-            
-            // ESTE É O ENDEREÇO DO SEU WEB APP DO GOOGLE APPS SCRIPT!
-            const webAppUrl = 'https://script.google.com/macros/s/AKfycbzZOZUqjlp5bQ1DUQKhqMi2ABT8nZYFi-4rcluMawDsWJTBcxxhu8FRJWN1Fs/exec'; 
-
-            fetch(webAppUrl, {
-                method: 'POST',
-                body: formData 
-            })
-            .then(response => response.json()) 
-            .then(data => {
-                if (data.result === 'success') {
-                    formWrapper.classList.add('hidden'); 
-                    successMessage.classList.remove('hidden'); 
-                    leadForm.reset(); 
-                } else {
-                    alert('Houve um erro ao enviar sua inscrição. Tente novamente mais tarde.');
-                    console.error('Erro do Apps Script:', data);
-                }
-            })
-            .catch(error => {
-                console.error('Ocorreu um erro ao conectar com o Google Apps Script. Verifique sua conexão ou tente novamente.', error);
-                alert('Ocorreu um erro de rede ou servidor. Por favor, tente novamente.');
-            });
-        });
+    });
+</script>
     </script>
 
 </body>
