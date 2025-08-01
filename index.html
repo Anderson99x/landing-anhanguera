@@ -159,28 +159,13 @@
   const webAppUrl = 'https://script.google.com/macros/s/AKfycbzyBrikMDOANz4FfIjPs61mhBXPw-6_dClfoJID9o-jZhE2RrI3GnfAMJx5LPUkB35Z/exec';
 
   fetch(webAppUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.result === 'success') {
-      formWrapper.classList.add('hidden');
-      successMessage.classList.remove('hidden');
-      leadForm.reset();
-    } else {
-      alert('Erro ao enviar seus dados. Tente novamente.');
-      console.error('Resposta do Apps Script:', data);
-    }
-  })
-  .catch(error => {
-    console.error('Erro ao conectar com o Apps Script:', error);
-    alert('Erro ao conectar com o servidor. Tente novamente.');
-  });
-});
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+
 </script>
 
 </body>
