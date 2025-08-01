@@ -145,54 +145,43 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 
 <script>
-  const formWrapper = document.getElementById('form-wrapper');
-  const leadForm = document.getElementById('lead-form');
-  const successMessage = document.getElementById('success-message');
+ leadForm.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-  // Máscaras de CPF e telefone
-  $(document).ready(function(){
-      $('#cpf').inputmask('999.999.999-99');
-      $('#phone').inputmask('(99) 99999-9999'); 
+  const formData = {
+    Nome_Completo: document.getElementById('name').value,
+    E_mail: document.getElementById('email').value,
+    TELEFONE: document.getElementById('phone').value,
+    CPF: document.getElementById('cpf').value,
+    CURSO: document.getElementById('curso').value
+  };
+
+  const webAppUrl = 'https://script.google.com/macros/s/AKfycbyuI9LWMUXoqxIR-zQsIaRaQOp_33z4gRh1DZgoJqA9uZ9QeZ73Y3PCKq7dz3DIdcRu/exec';
+
+  fetch(webAppUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === 'success') {
+      formWrapper.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+      leadForm.reset();
+    } else {
+      alert('Erro ao enviar seus dados. Tente novamente.');
+      console.error('Resposta do Apps Script:', data);
+    }
+  })
+  .catch(error => {
+    console.error('Erro ao conectar com o Apps Script:', error);
+    alert('Erro ao conectar com o servidor. Tente novamente.');
   });
-
-  const webAppUrl = 'https://script.google.com/macros/s/AKfycbzyBrikMDOANz4FfIjPs61mhBXPw-6_dClfoJID9o-jZhE2RrI3GnfAMJx5LPUkB35Z/exec';
-
-  leadForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const formData = {
-          Nome_Completo: leadForm.Nome_Completo.value.trim(),
-          E_mail: leadForm.E_mail.value.trim(),
-          TELEFONE: leadForm.TELEFONE.value.trim(),
-          CPF: leadForm.CPF.value.trim(),
-          CURSO: leadForm.CURSO.value
-      };
-
-      fetch(webAppUrl, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-      })
-      .then(response => response.json())
-      .then(data => {
-          if (data.result === 'success') {
-              formWrapper.classList.add('hidden');
-              successMessage.classList.remove('hidden');
-              leadForm.reset();
-          } else {
-              alert('Erro ao enviar seus dados. Tente novamente.');
-              console.error('Resposta do Apps Script:', data);
-          }
-      })
-      .catch(error => {
-          console.error('Erro ao conectar com o Apps Script:', error);
-          alert('Erro ao conectar com o servidor. Tente novamente.');
-      });
-  });
+});
 </script>
 
 </body>
 </html>
-
