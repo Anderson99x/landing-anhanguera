@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Anhanguera - Inscreva-se Agora!</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,10 +27,7 @@
     .bg-hero-pattern::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
       background-size: cover;
       background-position: center;
@@ -143,51 +140,59 @@
   </div>
 </footer>
 
+<!-- jQuery e InputMask para máscaras -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 
 <script>
-    const formWrapper = document.getElementById('form-wrapper');
-    const leadForm = document.getElementById('lead-form');
-    const successMessage = document.getElementById('success-message');
+  const formWrapper = document.getElementById('form-wrapper');
+  const leadForm = document.getElementById('lead-form');
+  const successMessage = document.getElementById('success-message');
 
-    // Máscaras de CPF e telefone
-    $(document).ready(function(){
-        $('#cpf').inputmask('999.999.999-99');
-        $('#phone').inputmask('(99) 99999-9999'); 
-    });
+  // Máscaras de CPF e telefone
+  $(document).ready(function(){
+      $('#cpf').inputmask('999.999.999-99');
+      $('#phone').inputmask('(99) 99999-9999'); 
+  });
 
-    leadForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+  const webAppUrl = 'https://script.google.com/macros/s/AKfycbyuI9LWMUXoqxIR-zQsIaRaQOp_33z4gRh1DZgoJqA9uZ9QeZ73Y3PCKq7dz3DIdcRu/exec';
 
-        const formData = new FormData(leadForm);
-        const params = new URLSearchParams();
+  leadForm.addEventListener('submit', function(event) {
+      event.preventDefault();
 
-        formData.forEach((value, key) => {
-            params.append(key, value);
-        });
+      const formData = {
+          Nome_Completo: leadForm.Nome_Completo.value.trim(),
+          E_mail: leadForm.E_mail.value.trim(),
+          TELEFONE: leadForm.TELEFONE.value.trim(),
+          CPF: leadForm.CPF.value.trim(),
+          CURSO: leadForm.CURSO.value
+      };
 
-        // 🔁 Substitua pela sua URL de implantação:
-        const webAppUrl = 'https://script.google.com/macros/s/AKfycbweJ8T2hRZZAcNuI4C7zbsErjA9pVxJZ0O01gHX21xd6ehgzM9RLY6r8oQhJuwWBWEJxA/exec?';
-
-
-        fetch(webAppUrl, {
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.result === 'success') {
-                formWrapper.classList.add('hidden');
-                successMessage.classList.remove('hidden');
-                leadForm.reset();
-            } else {
-                alert('Erro ao enviar seus dados. Tente novamente.');
-                console.error('Resposta do Apps Script:', data);
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao conectar com o Apps Script:', error);
-            alert('Erro ao conectar com o servidor. Tente novamente.');
-        });
-    });
+      fetch(webAppUrl, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.result === 'success') {
+              formWrapper.classList.add('hidden');
+              successMessage.classList.remove('hidden');
+              leadForm.reset();
+          } else {
+              alert('Erro ao enviar seus dados. Tente novamente.');
+              console.error('Resposta do Apps Script:', data);
+          }
+      })
+      .catch(error => {
+          console.error('Erro ao conectar com o Apps Script:', error);
+          alert('Erro ao conectar com o servidor. Tente novamente.');
+      });
+  });
 </script>
+
+</body>
+</html>
+
