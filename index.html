@@ -1,231 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anhanguera - Inscreva-se Agora!</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico"> 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .font-anton {
-            font-family: 'Anton', sans-serif;
-            letter-spacing: 1.5px;
-        }
-        .bg-hero-pattern {
-            background: linear-gradient(270deg, #e65100, #ff9800, #f57c00);
-            background-size: 600% 600%;
-            animation: animated-gradient 16s ease infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        .bg-hero-pattern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.25;
-            z-index: 0;
-        }
-        @keyframes animated-gradient {
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
-        }
-        .text-shadow-custom {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-        }
-        .logo-shadow {
-            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
-        }
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anhanguera - Inscreva-se Agora!</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .font-anton {
+      font-family: 'Anton', sans-serif;
+      letter-spacing: 1.5px;
+    }
+    .bg-hero-pattern {
+      background: linear-gradient(270deg, #e65100, #ff9800, #f57c00);
+      background-size: 600% 600%;
+      animation: animated-gradient 16s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    .bg-hero-pattern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+      z-index: 0;
+    }
+    @keyframes animated-gradient {
+      0% { background-position: 0% 50% }
+      50% { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+    .text-shadow-custom {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+    .logo-shadow {
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+    }
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body class="bg-gray-100">
 
-    <header class="bg-hero-pattern text-white py-16 px-4">
-        <div class="container mx-auto flex flex-col lg:flex-row items-center gap-8 content-wrapper">
-            
-            <div class="lg:w-1/2 text-center lg:text-left">
-                <img src="foto transparente.png" alt="Logo da Anhanguera" class="w-48 mx-auto lg:mx-0 mb-6 logo-shadow">
-                <h1 class="text-4xl md:text-6xl font-anton leading-tight text-shadow-custom">SEU FUTURO COMEÇA AQUI.</h1>
-                <p class="text-lg md:text-xl mt-4 mb-6 text-shadow-custom">Graduação a partir de R$ 99/mês. Inscreva-se e mude seu futuro!</p>
-            </div>
+<header class="bg-hero-pattern text-white py-16 px-4">
+  <div class="container mx-auto flex flex-col lg:flex-row items-center gap-8 content-wrapper">
+    <div class="lg:w-1/2 text-center lg:text-left">
+      <img src="foto transparente.png" alt="Logo da Anhanguera" class="w-48 mx-auto lg:mx-0 mb-6 logo-shadow" />
+      <h1 class="text-4xl md:text-6xl font-anton leading-tight text-shadow-custom">SEU FUTURO COMEÇA AQUI.</h1>
+      <p class="text-lg md:text-xl mt-4 mb-6 text-shadow-custom">Graduação a partir de R$ 99/mês. Inscreva-se e mude seu futuro!</p>
+    </div>
 
-            <div class="lg:w-1/2 w-full max-w-md">
-                <div id="form-wrapper" class="bg-white rounded-2xl shadow-2xl p-8">
-                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Comece seu futuro hoje!</h2>
-                    
-                    <form id="lead-form" class="space-y-4">
-                        <div>
-                            <label for="name" class="text-sm font-semibold text-gray-600">Nome Completo</label>
-                            <input type="text" id="name" name="Nome_Completo" placeholder="Seu nome" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
-                        </div>
-                        <div>
-                            <label for="email" class="text-sm font-semibold text-gray-600">E-mail</label>
-                            <input type="email" id="email" name="E_mail" placeholder="seu@email.com" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
-                        </div>
-                        <div>
-                            <label for="phone" class="text-sm font-semibold text-gray-600">Telefone (WhatsApp)</label>
-                            <input type="tel" id="phone" name="TELEFONE" placeholder="(99) 99999-9999" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
-                        </div>
-                        <div>
-                            <label for="cpf" class="text-sm font-semibold text-gray-600">CPF</label>
-                            <input type="text" id="cpf" name="CPF" placeholder="999.999.999-99" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
-                        </div>
-                        <div>
-                            <label for="curso" class="text-sm font-semibold text-gray-600">Curso de Interesse</label>
-                            <select id="curso" name="CURSO" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required>
-                                <option value="">Selecione um curso</option>
-                                <optgroup label="Cursos EAD">
-                                    <option value="EAD Ciencias Economicas">Ciências Econômicas</option>
-                                    <option value="EAD Comercio Exterior">Comércio Exterior</option>
-                                    <option value="EAD Educacao Fisica (Licenciatura)">Educação Física (Licenciatura)</option>
-                                    <option value="EAD Engenharia de Software">Engenharia de Software</option>
-                                    <option value="EAD Filosofia">Filosofia</option>
-                                    <option value="EAD Geografia">Geografia</option>
-                                    <option value="EAD Gerontologia">Gerontologia</option>
-                                    <option value="EAD Gestao Comercial">Gestão Comercial</option>
-                                    <option value="EAD Gestao da Producao Industrial">Gestão da Produção Industrial</option>
-                                    <option value="EAD Gestao da Tecnologia da Informacao">Gestão da Tecnologia da Informação</option>
-                                    <option value="EAD Gestao de Recursos Humanos">Gestão de Recursos Humanos</option>
-                                    <option value="EAD Gestao Financeira">Gestão Financeira</option>
-                                    <option value="EAD Gestao Hospitalar">Gestão Hospitalar</option>
-                                    <option value="EAD Historia">História</option>
-                                    <option value="EAD Letras (Portugues, Ingles, Espanhol)">Letras (Português, Inglês, Espanhol)</option>
-                                    <option value="EAD Logistica">Logística</option>
-                                    <option value="EAD Marketing">Marketing</option>
-                                    <option value="EAD Marketing Digital">Marketing Digital</option>
-                                    <option value="EAD Pedagogia">Pedagogia</option>
-                                    <option value="EAD Processos Gerenciais">Processos Gerenciais</option>
-                                    <option value="EAD Redes de Computadores">Redes de Computadores</option>
-                                    <option value="EAD Relacoes Publicas">Relações Públicas</option>
-                                    <option value="EAD Seguranca Publica">Segurança Pública</option>
-                                    <option value="EAD Servico Social">Serviço Social</option>
-                                    <option value="EAD Sociologia">Sociologia</option>
-                                    <option value="EAD Teologia">Teologia</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 text-lg font-bold rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                            QUERO SABER MAIS!
-                        </button>
-                    </form>
-                    <p class="text-xs text-gray-500 text-center mt-4">Seus dados estão seguros. Ao enviar, você concorda em receber contato da nossa equipe.</p>
-                </div>
-                <div id="success-message" class="hidden text-center bg-green-100 text-green-800 p-8 rounded-2xl shadow-2xl">
-                    <h2 class="text-2xl font-bold mb-2">Inscrição recebida!</h2>
-                    <p class="text-lg">Agradecemos seu interesse. Um de nossos consultores entrará em contato em breve pelo WhatsApp ou e-mail fornecido. Boa sorte na sua jornada!</p>
-                </div>
-            </div>
+    <div class="lg:w-1/2 w-full max-w-md">
+      <div id="form-wrapper" class="bg-white rounded-2xl shadow-2xl p-8">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Comece seu futuro hoje!</h2>
 
-        </div>
-    </header>
+        <form id="lead-form" class="space-y-4">
+          <div>
+            <label for="name" class="text-sm font-semibold text-gray-600">Nome Completo</label>
+            <input type="text" id="name" name="Nome_Completo" placeholder="Seu nome" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required />
+          </div>
 
-    <section class="py-16 bg-white">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-12">Por que escolher a Anhanguera?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="flex flex-col items-center">
-                    <div class="bg-orange-100 p-5 rounded-full mb-4">
-                        <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Flexibilidade Total</h3>
-                    <p class="text-gray-600">Estude no seu ritmo, de onde estiver. Nossas plataformas EAD se adaptam à sua rotina.</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="bg-orange-100 p-5 rounded-full mb-4">
-                        <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Diploma Reconhecido</h3>
-                    <p class="text-gray-600">Tenha um diploma com a mesma validade do presencial, reconhecido pelo MEC e valorizado no mercado.</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="bg-orange-100 p-5 rounded-full mb-4">
-                        <svg class="w-10 h-10 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Preço que Cabe no Bolso</h3>
-                    <p class="text-gray-600">Acreditamos na educação acessível. Invista no seu futuro com mensalidades que não pesam no orçamento.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+          <div>
+            <label for="email" class="text-sm font-semibold text-gray-600">E-mail</label>
+            <input type="email" id="email" name="E_mail" placeholder="email@exemplo.com" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required />
+          </div>
 
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Anhanguera Educacional. Todos os direitos reservados.</p>
-            <p class="text-sm text-gray-400 mt-1">Esta é uma página de demonstração para captação de leads.</p>
-        </div>
-    </footer>
+          <div>
+            <label for="phone" class="text-sm font-semibold text-gray-600">Telefone</label>
+            <input type="text" id="phone" name="TELEFONE" placeholder="(11) 91234-5678" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required />
+          </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>    
-    
-    <script>
-        const formWrapper = document.getElementById('form-wrapper');
-        const leadForm = document.getElementById('lead-form');
-        const successMessage = document.getElementById('success-message');
+          <div>
+            <label for="cpf" class="text-sm font-semibold text-gray-600">CPF</label>
+            <input type="text" id="cpf" name="CPF" placeholder="000.000.000-00" class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white" required />
+          </div>
 
-        // Inicializa as máscaras usando jQuery e Inputmask.js
-        $(document).ready(function(){
-            $('#cpf').inputmask('999.999.999-99');
-            $('#phone').inputmask('(99) 99999-9999'); 
+          <div>
+            <label for="curso" class="text-sm font-semibold text-gray-600">Curso de Interesse</label>
+            <select id="curso" name="CURSO" required class="w-full mt-1 px-4 py-3 rounded-lg bg-gray-100 text-gray-800 border-2 border-transparent focus:outline-none focus:border-orange-500 focus:bg-white">
+              <option value="" disabled selected>Selecione um curso</option>
+              <option value="EAD Ciencias Economicas">Ciências Econômicas</option>
+              <option value="EAD Comercio Exterior">Comércio Exterior</option>
+              <option value="EAD Educacao Fisica (Licenciatura)">Educação Física (Licenciatura)</option>
+              <option value="EAD Engenharia de Software">Engenharia de Software</option>
+              <option value="EAD Filosofia">Filosofia</option>
+              <option value="EAD Geografia">Geografia</option>
+              <option value="EAD Gerontologia">Gerontologia</option>
+              <option value="EAD Gestao Comercial">Gestão Comercial</option>
+              <option value="EAD Gestao da Producao Industrial">Gestão da Produção Industrial</option>
+              <option value="EAD Gestao da Tecnologia da Informacao">Gestão da Tecnologia da Informação</option>
+              <option value="EAD Gestao de Recursos Humanos">Gestão de Recursos Humanos</option>
+              <option value="EAD Gestao Financeira">Gestão Financeira</option>
+              <option value="EAD Gestao Hospitalar">Gestão Hospitalar</option>
+              <option value="EAD Historia">História</option>
+              <option value="EAD Letras (Portugues, Ingles, Espanhol)">Letras</option>
+              <option value="EAD Logistica">Logística</option>
+              <option value="EAD Marketing">Marketing</option>
+              <option value="EAD Marketing Digital">Marketing Digital</option>
+              <option value="EAD Pedagogia">Pedagogia</option>
+              <option value="EAD Processos Gerenciais">Processos Gerenciais</option>
+              <option value="EAD Redes de Computadores">Redes de Computadores</option>
+              <option value="EAD Relacoes Publicas">Relações Públicas</option>
+              <option value="EAD Seguranca Publica">Segurança Pública</option>
+              <option value="EAD Servico Social">Serviço Social</option>
+              <option value="EAD Sociologia">Sociologia</option>
+              <option value="EAD Teologia">Teologia</option>
+            </select>
+          </div>
+
+          <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 text-lg font-bold rounded-lg shadow-lg transition-transform transform hover:scale-105">QUERO SABER MAIS!</button>
+        </form>
+
+        <p class="text-xs text-gray-500 text-center mt-4">Seus dados estão seguros. Ao enviar, você concorda em receber contato da nossa equipe.</p>
+      </div>
+
+      <div id="success-message" class="hidden text-center bg-green-100 text-green-800 p-8 rounded-2xl shadow-2xl">
+        <h2 class="text-2xl font-bold mb-2">Inscrição recebida!</h2>
+        <p class="text-lg">Agradecemos seu interesse. Um de nossos consultores entrará em contato em breve pelo WhatsApp ou e-mail fornecido.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<footer class="bg-gray-800 text-white py-6">
+  <div class="container mx-auto text-center">
+    <p>&copy; 2025 Anhanguera Educacional. Todos os direitos reservados.</p>
+    <p class="text-sm text-gray-400 mt-1">Esta é uma página de demonstração para captação de leads.</p>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
+<script>
+  const formWrapper = document.getElementById('form-wrapper');
+  const leadForm = document.getElementById('lead-form');
+  const successMessage = document.getElementById('success-message');
+
+  $(document).ready(function () {
+    $('#cpf').inputmask('999.999.999-99');
+    $('#phone').inputmask('(99) 99999-9999');
+  });
+
+  leadForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(leadForm);
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbweJ8T2hRZZAcNuI4C7zbsErjA9pVxJZ0O01gHX21xd6ehgzM9RLY6r8oQhJuwWBWEJxA/exec';
+
+    fetch(webAppUrl, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        return response.json();
+      } else {
+        return response.text().then(text => {
+          throw new Error('Resposta não é JSON: ' + text);
         });
+      }
+    })
+    .then(data => {
+      if (data.result === 'success') {
+        formWrapper.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+        leadForm.reset();
+      } else {
+        alert('Erro ao enviar inscrição.');
+        console.error('Erro no retorno:', data);
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao enviar dados:', error);
+      alert('Erro ao conectar com o servidor. Tente novamente.');
+    });
+  });
+</script>
 
-        leadForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede que a página recarregue ao enviar o formulário
-
-            // Coleta os dados do formulário (agora com os atributos 'name' corretos no HTML)
-            const formData = new FormData(leadForm);
-            
-            // ESTA É A URL DO SEU WEB APP DO GOOGLE APPS SCRIPT!
-            // Verifique se a URL abaixo é exatamente a mesma que você obteve na última implantação do seu Apps Script.
-            const webAppUrl = 'https://script.google.com/macros/s/AKfycbweJ8T2hRZZAcNuI4C7zbsErjA9pVxJZ0O01gHX21xd6ehgzM9RLY6r8oQhJuwWBWEJxA/exec';
-            
-            fetch(webAppUrl, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                // Verifica se a resposta é JSON antes de tentar parsear
-                const contentType = response.headers.get("content-type");
-                if (contentType && contentType.indexOf("application/json") !== -1) {
-                    return response.json();
-                } else {
-                    // Se não for JSON, lê como texto e lança um erro
-                    return response.text().then(text => {
-                        throw new Error('Resposta não é JSON: ' + text);
-                    });
-                }
-            })
-            .then(data => {
-                if (data.result === 'success') {
-                    formWrapper.classList.add('hidden');
-                    successMessage.classList.remove('hidden');
-                    leadForm.reset(); // Limpa o formulário após o sucesso
-                } else {
-                    alert('Houve um erro ao enviar sua inscrição. Tente novamente mais tarde.');
-                    console.error('Erro do Apps Script:', data);
-                }
-            })
-            .catch(error => {
-                console.error('Ocorreu um erro ao conectar com o Google Apps Script. Verifique sua conexão ou tente novamente.', error);
-                alert('Ocorreu um erro de rede ou servidor. Por favor, tente novamente.');
-            });
-        });
-    </script>
 </body>
 </html>
+
