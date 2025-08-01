@@ -147,52 +147,47 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
 
 <script>
-  const formWrapper = document.getElementById('form-wrapper');
-  const leadForm = document.getElementById('lead-form');
-  const successMessage = document.getElementById('success-message');
+    const formWrapper = document.getElementById('form-wrapper');
+    const leadForm = document.getElementById('lead-form');
+    const successMessage = document.getElementById('success-message');
 
-  $(document).ready(function () {
-    $('#cpf').inputmask('999.999.999-99');
-    $('#phone').inputmask('(99) 99999-9999');
-  });
-
-  leadForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(leadForm);
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbweJ8T2hRZZAcNuI4C7zbsErjA9pVxJZ0O01gHX21xd6ehgzM9RLY6r8oQhJuwWBWEJxA/exec';
-
-    fetch(webAppUrl, {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.indexOf("application/json") !== -1) {
-        return response.json();
-      } else {
-        return response.text().then(text => {
-          throw new Error('Resposta não é JSON: ' + text);
-        });
-      }
-    })
-    .then(data => {
-      if (data.result === 'success') {
-        formWrapper.classList.add('hidden');
-        successMessage.classList.remove('hidden');
-        leadForm.reset();
-      } else {
-        alert('Erro ao enviar inscrição.');
-        console.error('Erro no retorno:', data);
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao enviar dados:', error);
-      alert('Erro ao conectar com o servidor. Tente novamente.');
+    // Máscaras de CPF e telefone
+    $(document).ready(function(){
+        $('#cpf').inputmask('999.999.999-99');
+        $('#phone').inputmask('(99) 99999-9999'); 
     });
-  });
+
+    leadForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(leadForm);
+        const params = new URLSearchParams();
+
+        formData.forEach((value, key) => {
+            params.append(key, value);
+        });
+
+        // 🔁 Substitua pela sua URL de implantação:
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbweJ8T2hRZZAcNuI4C7zbsErjA9pVxJZ0O01gHX21xd6ehgzM9RLY6r8oQhJuwWBWEJxA/exec?';
+
+
+        fetch(webAppUrl, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                formWrapper.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                leadForm.reset();
+            } else {
+                alert('Erro ao enviar seus dados. Tente novamente.');
+                console.error('Resposta do Apps Script:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao conectar com o Apps Script:', error);
+            alert('Erro ao conectar com o servidor. Tente novamente.');
+        });
+    });
 </script>
-
-</body>
-</html>
-
